@@ -14,7 +14,6 @@ import {
   getFiltersData,
   FiltersSummary,
   ProductList,
-  ShowMore,
   Responsive,
   Sidebar,
   Loader
@@ -43,7 +42,6 @@ const CategoryPage = ({ id }) => (
           const { name, products } = category;
           const { pagination, items, aggregations } = products;
           const filtersData = getFiltersData(state.filters, aggregations);
-          console.log(pagination, networkStatus, NetworkStatus.ready)
 
           return (
             <CategoryLayout variant={!filtersData.length && 'noFilters'}>
