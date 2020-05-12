@@ -39,11 +39,11 @@ const CategoryPage = ({ id }) => (
           if (!category && loading) {
             return <Loader />;
           }
-
+          
           const { name, products } = category;
           const { pagination, items, aggregations } = products;
-          console.log(pagination, networkStatus)
           const filtersData = getFiltersData(state.filters, aggregations);
+          console.log(pagination, networkStatus, NetworkStatus.ready)
 
           return (
             <CategoryLayout variant={!filtersData.length && 'noFilters'}>
@@ -87,13 +87,7 @@ const CategoryPage = ({ id }) => (
                 <FiltersSummary data={filtersData} />
                 <ProductList products={items} />
               </Box>
-              <InfiniteScroll pagination={pagination} />
-              {/* <FlexLayout gridArea={CategoryArea.footer} flexDirection="column" alignItems="center">
-                {pagination.nextPage && <Divider />}
-                {pagination.nextPage && (
-                  <ShowMore onClick={fetchMore} loading={networkStatus === NetworkStatus.fetchMore} />
-                )}
-              </FlexLayout> */}
+              <InfiniteScroll pagination={pagination} networkStatus={networkStatus} fetchMore={fetchMore} isCallFinished={networkStatus === NetworkStatus.ready} />
             </CategoryLayout>
           );
         }}
