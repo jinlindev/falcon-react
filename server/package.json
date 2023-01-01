@@ -21,7 +21,7 @@
     "@deity/falcon-shop-extension": "^0.4.5",
     "@deity/falcon-wordpress-api": "^0.1.9",
     "apollo-env": "0.4.0",
-    "config": "^2.0.1",
+    "config": "^3.3.8",
     "core-js": "3.0.0-beta.3",
     "cross-env": "5.2.0"
   },
